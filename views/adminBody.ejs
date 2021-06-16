@@ -1,0 +1,57 @@
+<section class="mb-5">
+    <div class="container my-5">
+        <h1 class="text-center text-danger">Admin Panel</h1>
+    </div>
+    <div>
+        <% if (success_message!='' ){%>
+            <p class="text-center text-success lead my-5">
+                <%- success_message%>
+            </p>
+            <%}%>
+    </div>
+    <div>
+        <% if (error!='' ){%>
+            <p class="text-center text-success lead my-5">
+                <%- error%>
+            </p>
+            <%}%>
+    </div>
+
+    <div>
+        <table class="table">
+            <thead>
+                <th>Title</th>
+                <th>Heading</th>
+                <th>Paragraph</th>
+                <th>Author</th>
+                <th>Image</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                <% adminPost.forEach(function(adminPost){%>
+                    <tr>
+                        <td data-label="Title">
+                            <%- adminPost.title%>
+                        </td>
+                        <td data-label="Heading">
+                            <%- adminPost.heading%>
+                        </td>
+                        <td data-label="Paragraph">
+                            <%- adminPost.content%>
+                        </td>
+                        <td data-label="Author">
+                            <%- adminPost.author%>
+                        </td>
+                        <td data-label="Image"><img src="uploads/<%- adminPost.file%>" width="100" alt=""></td>
+                        <td data-label="Update"><a href="/<%-adminPost._id%>"><button
+                                    class="btn btn-outline-success btn-sm">Update</button></a></td>
+                        <td data-label="Delete"><a href="/delete/<%-adminPost._id%>"><button
+                                    class="btn btn-outline-danger btn-sm">Delete</button></a></td>
+                    </tr>
+                    <%})%>
+
+            </tbody>
+        </table>
+    </div>
+</section>

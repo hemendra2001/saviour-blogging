@@ -1,0 +1,65 @@
+<%- include("header") %>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">SAVIOUR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">HOME PAGE</a>
+          </li>
+		     <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">REGISTER USER</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div>
+    <% if(error!='' ){%>
+      <p class="m-5 text-center text-danger lead">
+        <%- error%>
+      </p>
+      <%}%>
+  </div>
+  <div>
+    <% if(success_message!='' ){%>
+      <p class="m-5 text-center text-success lead">
+        <%- success_message%>
+      </p>
+      <%}%>
+  </div>
+
+  <div class="my-5 container">
+    <form method="POST" action="register">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" value="<%- typeof username!='undefined'?username:''%>" class="form-control"
+          autocomplete="off">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" value="<%- typeof email !='undefined'?email:''%>" class="form-control"
+          autocomplete="off">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" name="cpassword" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-outline-info">Submit</button>
+    </form>
+  </div>
+
+
+
+  <%- include("footer") %>

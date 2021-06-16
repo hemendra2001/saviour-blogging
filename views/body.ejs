@@ -1,0 +1,36 @@
+<section class="container mt-5" style="margin-top: 100px !important;">
+    <div>
+        <div class="row">
+
+            <% adminPost.forEach(function(adminPost){%>
+
+                <!-- Here our Text -->
+                <div class="col-md-6 mx-auto ">
+                    <h2 style="color: red;">
+                        <%- adminPost.title%>
+                    </h2>
+                    <h2 class="text-secondary">
+                        <%- adminPost.heading%>
+                    </h2>
+                    </h2>
+                    <p class="lead">
+                        <%- adminPost.content%>
+                    </p>
+                    <p style="font-weight: bold;"> Author :- <span class="text-primary">
+                            <%- adminPost.author%>
+                        </span></p>
+                </div>
+
+                <!-- Here our Image -->
+                <div class="col-md-6 mx-auto mt-5">
+                    <figure>
+                        <img class="img" src="uploads/<%-adminPost.file%>" style="width: 100%;
+        overflow: hidden;" alt="img">
+                    </figure>
+                </div>
+                <hr class="my-5">
+                <%})%>
+        </div>
+
+    </div>
+</section>

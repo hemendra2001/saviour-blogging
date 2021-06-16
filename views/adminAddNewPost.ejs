@@ -1,0 +1,60 @@
+<%- include("header") %>
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">ADMIN PANEL</a>
+      </div>
+    </nav>
+  </section>
+
+  <section class="container mb-5">
+    <div id="container">
+      <div id=flip class="mt-5 text-center mt-5">
+        <div>
+          <div>Post</div>
+        </div>
+        <div>
+          <div>New</div>
+        </div>
+        <div>
+          <div>Add</div>
+        </div>
+      </div>
+    </div>
+
+<div>
+  <p class="text-center text-danger lead"><% if(error !=''){%>   <%- error%> <%}%></p>
+</div>
+<div>
+  <p class="text-center text-success lead"><% if(success_message !=''){%>   <%- success_message%> <%}%></p>
+</div>
+
+
+    <div class="mt-5">
+      <form method="POST" action="/adminAddNewPost" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Title</label>
+          <input type="text" name="title" class="form-control" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Heading</label>
+          <input type="text" name="heading" class="form-control" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Content</label>
+          <input type="text" name="content" class="form-control" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Author</label>
+          <input type="text" name="author" class="form-control" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Image</label>
+          <input class="mx-2" type="file" name="file">
+        </div>
+
+        <button type="submit" class="btn btn-outline-dark mt-3">Add New Post</button>
+      </form>
+    </div>
+  </section>
+  <%- include("footer") %>

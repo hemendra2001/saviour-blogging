@@ -1,0 +1,55 @@
+<%- include("header") %>
+  <section>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/admin">ADMIN PANEL</a>
+      </div>
+    </nav>
+  </section>
+
+  <section class="container mb-5">
+    <div id="container">
+      <div id=flip class="mt-5 text-center mt-5">
+        <div>
+          <div>Post</div>
+        </div>
+        <div>
+          <div>Your</div>
+        </div>
+        <div>
+          <div>Update</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="mt-5">
+      <form method="POST" action="/adminUpdatePost" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<%- adminPost._id %>">
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Title</label>
+          <input type="text" name="title" value="<%- adminPost.title%>" class="form-control" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Heading</label>
+          <input type="text" name="heading" value="<%- adminPost.heading%>" class="form-control" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Cotent</label>
+          <input type="text" name="content" value="<%- adminPost.content%>" class="form-control" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Author</label>
+          <input type="text" name="author" value="<%- adminPost.author%>" class="form-control" autocomplete="off">
+        </div>
+        <div class="mb-3">
+          <label style="font-weight:bold" class="form-label">Image</label>
+          <input class="mx-2" type="file" name="file">
+          <img class="my-3 w-100" src="uploads/<%- adminPost.file%>" alt="Image">
+        </div>
+
+        <button type="submit" class="btn btn-outline-dark mt-3">Update Post</button>
+      </form>
+    </div>
+  </section>
+  <%- include("footer") %>
